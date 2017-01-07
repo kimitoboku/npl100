@@ -1,0 +1,6 @@
+#+TITLE: 言語処理100本ノック by Golang
+#+AUTHOR: Kawakami Kento(@emaxser)
+#+EMAIL: emaxser@bonprosoft.com
+
+* 言語処理100本ノック by Golang
+[[http://www.cl.ecei.tohoku.ac.jp/nlp100/][言語処理100本ノック]] を適当にやっていきます．

@@ -4,17 +4,17 @@ import (
 	"fmt"
 )
 
-// 「パタトクカシーー」という文字列の1,3,5,7文字目を取り出して連結した文字列を得よ．
+// 「パトカー」＋「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ．
 
 func main() {
-	s := "パタトクカシーー"
-	fmt.Printf("%+v\n", s)
-	runes := []rune(s)
-	ext := ""
-	for i := 0; i < len(runes); i++ {
-		if i%2 == 0 {
-			ext += string(runes[i])
-		}
+	s1 := "パトカー"
+	s2 := "タクシー"
+	rune1 := []rune(s1)
+	rune2 := []rune(s2)
+	comp := ""
+	for i := 0; i < len(rune1); i++ {
+		comp += string(rune1[i]) + string(rune2[i])
 	}
-	fmt.Printf("%+v\n", ext)
+	fmt.Printf("%+v\n", comp)
+
 }

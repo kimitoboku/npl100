@@ -5,25 +5,29 @@ import (
 	"strings"
 )
 
-// "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."という文を単語に分解し，1, 5, 6, 7, 8, 9, 15, 16, 19番目の単語は先頭の1文字，それ以外の単語は先頭に2文字を取り出し，取り出した文字列から単語の位置（先頭から何番目の単語か）への連想配列（辞書型もしくはマップ型）を作成せよ．
+// 与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
+
+func n_gram_ss(a []string, n int) [][]string {
+	var list [][]string
+	for i := 0; i < len(a)-n+1; i++ {
+		list = append(list, a[i:i+n])
+	}
+	return list
+}
+
+func n_gram_s(s string, n int) []string {
+	a := []rune(s)
+	var list []string
+	for i := 0; i < len(a)-n+1; i++ {
+		list = append(list, string(a[i:i+n]))
+	}
+	return list
+}
 
 func main() {
-	s := "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
-	fmt.Printf("%+v\n", s)
-	s = strings.Replace(s, ".", "", -1)
-	slist := strings.Split(s, " ")
-	indexList := []int{1, 5, 6, 7, 8, 9, 15, 16, 19}
-	elemDict := make(map[string]int)
-	j := 0
-	for i := 0; i < len(slist); i++ {
-		if i+1 == indexList[j] {
-			elemDict[slist[i][0:1]] = i + 1
-			if j < len(indexList)-1 {
-				j++
-			}
-		} else {
-			elemDict[slist[i][0:2]] = i + 1
-		}
-	}
-	fmt.Printf("%+v\n", elemDict)
+	s := "I am an NLPer"
+	ss := strings.Split(s, " ")
+	fmt.Printf("%+v\n", n_gram_ss(ss, 2))
+	fmt.Printf("%+v\n", n_gram_s(s, 2))
+
 }

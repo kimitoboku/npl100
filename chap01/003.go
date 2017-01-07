@@ -2,19 +2,22 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
-// 「パトカー」＋「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ．
+// "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."という文を単語に分解し，各単語の（アルファベットの）文字数を先頭から出現順に並べたリストを作成せよ．
 
 func main() {
-	s1 := "パトカー"
-	s2 := "タクシー"
-	rune1 := []rune(s1)
-	rune2 := []rune(s2)
-	comp := ""
-	for i := 0; i < len(rune1); i++ {
-		comp += string(rune1[i]) + string(rune2[i])
+	s := "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+	fmt.Printf("%+v\n", s)
+
+	s = strings.Replace(s, ",", "", -1)
+	s = strings.Replace(s, ".", "", -1)
+	slist := strings.Split(s, " ")
+	var piList []int
+	for _, st := range slist {
+		piList = append(piList, len(st))
 	}
-	fmt.Printf("%+v\n", comp)
+	fmt.Printf("%+v\n", piList)
 
 }

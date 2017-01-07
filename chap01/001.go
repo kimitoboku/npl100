@@ -1,20 +1,20 @@
 package main
 
-// 文字列"stressed"の文字を逆に（末尾から先頭に向かって）並べた文字列を得よ．
-
 import (
 	"fmt"
 )
 
+// 「パタトクカシーー」という文字列の1,3,5,7文字目を取り出して連結した文字列を得よ．
+
 func main() {
-	s := "stressed"
+	s := "パタトクカシーー"
 	fmt.Printf("%+v\n", s)
-
 	runes := []rune(s)
-
-	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
+	ext := ""
+	for i := 0; i < len(runes); i++ {
+		if i%2 == 0 {
+			ext += string(runes[i])
+		}
 	}
-	revs := string(runes)
-	fmt.Printf("%+v\n", revs)
+	fmt.Printf("%+v\n", ext)
 }
